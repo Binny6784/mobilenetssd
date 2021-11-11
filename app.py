@@ -27,7 +27,6 @@ DOWNLOAD_FOLDER = 'static/downloads/'
 ALLOWED_EXTENSIONS = {'jpg', 'png','.jpeg'}
 
 lineaccesstoken = 'QVwEs4Kq3aI6Qj+udUDlMBhpMoHIdtsBjdYqexe1h3Arfe9RFQqtLcxZhWoyMuefT7RdaHceCq35utWsnBPM7UiOo02UJQLMaSadBgnDcXqNs+20Pah1MrD5P9NkQcHC/LYzeiAud/cdM/Ga0wnnbwdB04t89/1O/w1cDnyilFU'
-
 line_bot_api = LineBotApi(lineaccesstoken)
 
 # APP CONFIGURATIONS
@@ -149,14 +148,9 @@ def event_handle(event):
 
     if msgType == "text":
         msg = str(event["message"]["text"])
-        if (msg == "สวัสดี") : 
-            replyObj = TextSendMessage(text="ดีด้วย") 
+       if (msg == "สวัสดี") : 
+       replyObj = TextSendMessage(text="ดีด้วย") 
         else : replyObj = TextSendMessage(text=msg)
-            replyObi=TextSendMessage(text="ดีด้วย")
-        else:(msg=="เที่่ยวไหม"):
-                replyObi=TextSendMessage(text="ไม่เที่ยวหรอก")
-        elif (msg=="กินข้าวไหม"):
-                replyObi = TextSendMessage (text="กินดิ")
         else :
                 replyObi = TextSendMessage(text=msg)
                line_bot-api.reply_message(rtoken,replyObj)
