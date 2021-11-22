@@ -147,20 +147,23 @@ def event_handle(event):
         return ''
 
         if msgType == "text":
-        msg = str(event["message"]["text"])
-                replyObj = TextSendMessage(textmsg) 
-        if (msg == "สวัสดี") : 
-                replyObj = TextSendMessage(text="ดีด้วย") 
-        elif (msg == "ทำไรค้าบบบ") :
+            msg = str(event["message"]["text"])
+            if (msg == "สวัสดี") : 
+                replyObj = TextSendMessage(text="ดีด้วย")
+                line_bot_api.reply_message(rtoken, replyObj)
+            elif (msg == "ทำไรค้าบบบ") :
                 replyObi = TextSendMessage(text="นอนเล่นค้าบบบ")
+                line_bot_api.reply_message(rtoken, replyObj)
         elif (msg == "กินข้าวยังค้าบบบ") :
                 replyObi = TextSendMessage(text="ยังค้าบบบ")
+                line_bot_api.reply_message(rtoken, replyObj)
         elif (msg == "ไปเดินตลาดนัดกันไหมค้าบบบ") :
                 replyObi = TextSendMessage(text="ไปค้าบบบ")
+                line_bot_api.reply_message(rtoken, replyObj)
         else :
-                replyObj = TextSendMessage(textmsg) 
-        line_bot_api.reply_message(rtoken, replyObj)
-        elif msgType == "image":
+                replyObj = TextSendMessage(text=msg) 
+                line_bot_api.reply_message(rtoken, replyObj)
+     elif msgType == "image":
         try:
             message_content = line_bot_api.get_message_content(event['message']['id'])
             i = Image.open(BytesIO(message_content.content))
