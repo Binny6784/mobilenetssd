@@ -146,21 +146,21 @@ def event_handle(event):
         line_bot_api.reply_message(rtoken, replyObj)
         return ''
 
-    if msgType == "text":
+        if msgType == "text":
         msg = str(event["message"]["text"])
-         replyObj = TextSendMessage(textmsg) 
-       if (msg == "สวัสดี") : 
-        replyObj = TextSendMessage(text="ดีด้วย") 
-       elif (msg == "ทำไรค้าบบบ") :
-        replyObi = TextSendMessage(text="นอนเล่นค้าบบบ")
-       elif (msg == "กินข้าวยังค้าบบบ") :
-        replyObi = TextSendMessage(text="ยังค้าบบบ")
-       elif (msg == "ไปเดินตลาดนัดกันไหมค้าบบบ") :
-         replyObi = TextSendMessage(text="ไปค้าบบบ")
-       else :
-        replyObj = TextSendMessage(textmsg) 
-       line_bot_api.reply_message(rtoken, replyObj)
-    elif msgType == "image":
+                replyObj = TextSendMessage(textmsg) 
+        if (msg == "สวัสดี") : 
+                replyObj = TextSendMessage(text="ดีด้วย") 
+        elif (msg == "ทำไรค้าบบบ") :
+                replyObi = TextSendMessage(text="นอนเล่นค้าบบบ")
+        elif (msg == "กินข้าวยังค้าบบบ") :
+                replyObi = TextSendMessage(text="ยังค้าบบบ")
+        elif (msg == "ไปเดินตลาดนัดกันไหมค้าบบบ") :
+                replyObi = TextSendMessage(text="ไปค้าบบบ")
+        else :
+                replyObj = TextSendMessage(textmsg) 
+        line_bot_api.reply_message(rtoken, replyObj)
+        elif msgType == "image":
         try:
             message_content = line_bot_api.get_message_content(event['message']['id'])
             i = Image.open(BytesIO(message_content.content))
