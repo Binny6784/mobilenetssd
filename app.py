@@ -123,7 +123,7 @@ def reply(intent,text,reply_token,id,disname):
     text_message = TextSendMessage(text="ทดสอบ")
     line_bot_api.reply_message(reply_token,text_message)
 
-def event_handle(event):
+def event_handle(event,json_line):
     print(event)
     try:
         userId = event['source']['userId']
@@ -148,10 +148,10 @@ def event_handle(event):
 
         if msgType == "text":
             msg = str(event["message"]["text"])
-            if (msg == "สวัสดี") : 
+        if (msg == "สวัสดี") : 
                 replyObj = TextSendMessage(text="ดีด้วย")
                 line_bot_api.reply_message(rtoken, replyObj)
-            elif (msg == "ทำไรค้าบบบ") :
+        elif (msg == "ทำไรค้าบบบ") :
                 replyObi = TextSendMessage(text="นอนเล่นค้าบบบ")
                 line_bot_api.reply_message(rtoken, replyObj)
         elif (msg == "กินข้าวยังค้าบบบ") :
